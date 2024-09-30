@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "43929332197",
+    "project_id": "batepapo-fef0d",
+    "storage_bucket": "batepapo-fef0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43929332197:android:868289dea54b480f9ae70c",
+        "android_client_info": {
+          "package_name": "com.example.appbatepapo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANml9UjZODkYEDW8YtCkUkkXcwY_ZwsEg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
