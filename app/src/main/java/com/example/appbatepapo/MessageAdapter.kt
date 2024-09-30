@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 data class Message(val senderId: String, val text: String)
 
 class MessageAdapter(
-    private val view: Context,
+    view: Context,
     private val messages: List<Message>
 
 ) : BaseAdapter() {
@@ -28,17 +28,26 @@ class MessageAdapter(
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val message = messages[position]
 
+        // Determinar o layout com base no remetente
         val layoutId = if (message.senderId == userId) {
             R.layout.message_right
         } else {
             R.layout.message_left
         }
 
-        val view: View = convertView ?: inflater.inflate(layoutId, parent, false)
 
-        val tvMessage = view.findViewById<TextView>(R.id.message)
-        tvMessage.text = message.text
+        val view: View
+        if (convertView == null || convertView.tag != layoutId) {
+            view = inflater.inflate(layoutId, parent, false)
+            view.tag = layoutId
+        } else {
+            view = convertView
+        }
+
+        val messageText = view.findViewById<TextView>(R.id.message)
+        messageText.text = message.text
 
         return view
     }
+
 }

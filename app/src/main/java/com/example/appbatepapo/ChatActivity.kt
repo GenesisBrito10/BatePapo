@@ -86,14 +86,15 @@ class ChatActivity : AppCompatActivity() {
                 if (e != null) {
                     return@addSnapshotListener
                 }
-
-                messagesList.clear()
                 for (doc in snapshots!!) {
                     val senderId = doc.getString("senderId") ?: ""
                     val text = doc.getString("text") ?: ""
                     messagesList.add(Message(senderId,text))
+
                 }
                 adapter.notifyDataSetChanged()
+                listViewMessages.post { listViewMessages.setSelection(adapter.count - 1) }
+
             }
     }
 
